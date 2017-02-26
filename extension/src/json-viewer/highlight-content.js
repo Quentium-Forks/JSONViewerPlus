@@ -69,13 +69,14 @@ function highlightContent(pre, outsideViewer, ignoreLimit) {
       return pre.hidden = false;
     }
 
-    return contentExtractor(pre, options).
-      then(function(value) {
-        return loadRequiredCss(options).then(function() { return value; });
-      }).
-      then(function(value) {
+    return contentExtractor.getJSON(pre, options)
+      .then(contentExtractor.formatJSON)
+      .then(function(data) {
+        return loadRequiredCss(options).then(function() { return data; });
+      })
+      .then(function(data) {
 
-        var formatted = prependHeader(options, outsideViewer, value.jsonText);
+        var formatted = prependHeader(options, outsideViewer, data.jsonText);
         var highlighter = new Highlighter(formatted, options);
 
         if (options.addons.autoHighlight) {
@@ -100,7 +101,7 @@ function highlightContent(pre, outsideViewer, ignoreLimit) {
           highlighter.fold();
         }
 
-        exposeJson(value.jsonExtracted, outsideViewer);
+        exposeJson(data.jsonObj, outsideViewer);
         renderExtras(pre, options, highlighter);
 
       });
