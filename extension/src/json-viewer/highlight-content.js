@@ -1,4 +1,5 @@
 var contentExtractor = require('./content-extractor');
+var jsonFilter = require('./filter');
 var Highlighter = require('./highlighter');
 var timestamp = require('./timestamp');
 var exposeJson = require('./viewer/expose-json');
@@ -69,12 +70,14 @@ function highlightContent(pre, outsideViewer, ignoreLimit) {
       return pre.hidden = false;
     }
 
+    var filterQuery = decodeURIComponent(document.location.hash.substring(1)) || ''
+
     return contentExtractor.getJSON(pre, options)
       .then((data) => {
         exposeJson(data.jsonObj, outsideViewer);
         return data;
       })
-      .then(contentExtractor.filterJSON(decodeURIComponent(document.location.hash.substring(1))))
+      .then(jsonFilter.applyQuery(filterQuery))
       .then(contentExtractor.formatJSON)
       .then(function(data) {
         return loadRequiredCss(options).then(function() { return data; });
