@@ -1,7 +1,9 @@
 var chrome = require('chrome-framework');
+var svgSearch = require('./svg-search');
 var svgGear = require('./svg-gear');
 var svgRaw = require('./svg-raw');
 var svgUnfold = require('./svg-unfold');
+var applyJsonPath = require('./apply-jsonpath');
 
 function renderExtras(pre, options, highlighter) {
   var extras = document.createElement("div");
@@ -9,6 +11,43 @@ function renderExtras(pre, options, highlighter) {
 
   if (!options.addons.autoHighlight) {
     extras.className += ' auto-highlight-off';
+  }
+
+  var searchLink = document.createElement("a");
+  searchLink.className = "json_viewer icon filter";
+  searchLink.href = "#";
+  searchLink.title = "Toggle JSONPath filter";
+  searchLink.innerHTML = svgSearch;
+  searchLink.onclick = function(e) {
+    e.preventDefault();
+
+    var editor = document.getElementsByClassName('CodeMirror')[0];
+    if (pre.searchEnabled) {
+      pre.searchEnabled = false;
+      extras.classList.remove("search-active");
+
+      var searchWindow = document.getElementsByClassName("search");
+
+    } else {
+      pre.searchEnabled = true;
+      extras.classList.add("search-active");
+
+      var searchWindow = document.createElement("div");
+      searchWindow.classList.add("search", "jsonpath-wrapper");
+
+      var textField = document.createElement("input");
+      textField.value = "$";
+      searchWindow.appendChild(textField);
+
+      var text = highlighter.editor.getValue();
+      textField.addEventListener('keyup', function () {
+        if (!this.value) this.value = '$';
+        
+        applyJsonPath(this.value, text, highlighter, options.addons.prependHeader);
+      })
+
+      editor.prepend(searchWindow);
+    }
   }
 
   var optionsLink = document.createElement("a");
@@ -21,7 +60,7 @@ function renderExtras(pre, options, highlighter) {
   var rawLink = document.createElement("a");
   rawLink.className = "json_viewer icon raw";
   rawLink.href = "#";
-  rawLink.title = "Original JSON toggle";
+  rawLink.title = "Show original JSON";
   rawLink.innerHTML = svgRaw;
   rawLink.onclick = function(e) {
     e.preventDefault();
@@ -44,7 +83,7 @@ function renderExtras(pre, options, highlighter) {
   var unfoldLink = document.createElement("a");
   unfoldLink.className = "json_viewer icon unfold";
   unfoldLink.href = "#";
-  unfoldLink.title = "Fold/Unfold all toggle";
+  unfoldLink.title = "Fold/Unfold all";
   unfoldLink.innerHTML = svgUnfold;
   unfoldLink.onclick = function(e) {
     e.preventDefault();
@@ -59,14 +98,14 @@ function renderExtras(pre, options, highlighter) {
       pre.setAttribute('data-folded', true)
     }
   }
-
-  extras.appendChild(optionsLink);
-  extras.appendChild(rawLink);
-
   // "awaysFold" was a typo but to avoid any problems I'll keep it
   // a while
   pre.setAttribute('data-folded', options.addons.alwaysFold || options.addons.awaysFold)
+
+  extras.appendChild(rawLink);
   extras.appendChild(unfoldLink);
+  extras.appendChild(searchLink);
+  extras.appendChild(optionsLink);
 
   document.body.appendChild(extras);
 }

@@ -13,6 +13,15 @@ html, body {
   visibility: hidden;
 }
 
+.search {
+  padding: 15px 20px;
+
+  input {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
 .CodeMirror {
   width: 100%;
   height: 100%;
@@ -29,6 +38,10 @@ html, body {
     transition: all ease-in-out 250ms;
     visibility: visible;
     opacity: 0.3;
+  }
+
+  &.search-active {
+    top: 40px;
   }
 
   &:hover a {
