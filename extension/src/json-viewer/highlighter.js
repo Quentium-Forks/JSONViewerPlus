@@ -87,7 +87,7 @@ Highlighter.prototype = {
 
       var text = self.removeQuotes(textContent);
 
-      if (text.match(URL_PATTERN) && self.clickableUrls()) {
+      if (text && text.match(URL_PATTERN) && self.clickableUrls()) {
         var decodedText = self.decodeText(text);
         elements.forEach(function(node) {
           if (self.wrapLinkWithAnchorTag()) {
