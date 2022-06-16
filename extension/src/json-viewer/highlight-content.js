@@ -103,9 +103,7 @@ function highlightContent(pre, outsideViewer, ignoreLimit) {
           )
         }
 
-        // "awaysFold" was a typo but to avoid any problems I'll keep it
-        // a while
-        if (options.addons.alwaysFold || options.addons.awaysFold) {
+        if (options.addons.alwaysFold) {
           highlighter.fold();
         }
 

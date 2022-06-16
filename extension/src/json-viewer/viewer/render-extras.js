@@ -100,9 +100,7 @@ function renderExtras(pre, options, highlighter) {
       pre.setAttribute('data-folded', true)
     }
   }
-  // "awaysFold" was a typo but to avoid any problems I'll keep it
-  // a while
-  pre.setAttribute('data-folded', options.addons.alwaysFold || options.addons.awaysFold)
+  pre.setAttribute('data-folded', options.addons.alwaysFold)
 
   extras.appendChild(rawLink);
   extras.appendChild(unfoldLink);

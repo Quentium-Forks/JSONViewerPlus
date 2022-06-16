@@ -211,10 +211,7 @@ Highlighter.prototype = {
   },
 
   alwaysRenderAllContent: function() {
-    // "awaysRenderAllContent" was a typo but to avoid any problems
-    // I'll keep it a while
-    return this.options.addons.alwaysRenderAllContent ||
-           this.options.addons.awaysRenderAllContent;
+    return this.options.addons.alwaysRenderAllContent;
   },
 
   clickableUrls: function() {
