@@ -7,7 +7,7 @@ require('codemirror/mode/javascript/javascript');
 require('codemirror/addon/hint/show-hint');
 require('codemirror/addon/hint/css-hint');
 require('codemirror/mode/css/css');
-var sweetAlert = require('sweetalert');
+var sweetAlert = require('sweetalert2');
 
 var Storage = require('./json-viewer/storage');
 var renderThemeList = require('./json-viewer/options/render-theme-list');
@@ -22,7 +22,7 @@ function isValidJSON(pseudoJSON) {
     JSON.parse(pseudoJSON);
     return true;
 
-  } catch(e) {
+  } catch (e) {
     return false;
   }
 }
@@ -53,14 +53,14 @@ function onLoaded() {
     options.structure = clearShowSize(options.structure);
 
     if (!isValidJSON(options.addons)) {
-      sweetAlert("Ops!", "\"Add-ons\" isn't a valid JSON", "error");
+      new sweetAlert("Ops!", "\"Add-ons\" isn't a valid JSON", "error");
 
     } else if (!isValidJSON(options.structure)) {
-      sweetAlert("Ops!", "\"Structure\" isn't a valid JSON", "error");
+      new sweetAlert("Ops!", "\"Structure\" isn't a valid JSON", "error");
 
     } else {
       Storage.save(options);
-      sweetAlert("Success", "Options saved!", "success");
+      new sweetAlert("Success", "Options saved!", "success");
     }
   });
 }

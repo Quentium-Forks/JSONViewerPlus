@@ -1,4 +1,4 @@
-var sweetAlert = require('sweetalert');
+var sweetAlert = require('sweetalert2');
 var defaults = require('./defaults');
 var Storage = require('../storage');
 
@@ -7,27 +7,27 @@ function bindResetButton() {
   button.onclick = function(e) {
     e.preventDefault();
 
-    sweetAlert({
+    new sweetAlert({
       title: "Are you sure?",
       text: "You will not be able to recover your custom settings",
-      type: "warning",
+      icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#DD6B55",
       confirmButtonText: "Yes, reset!",
-      closeOnConfirm: false
-    }, function() {
+      reverseButtons: true
+    }).then(result => {
+      if (result.value) {
+        var options = {};
+        options.theme = defaults.theme;
+        options.addons = JSON.stringify(defaults.addons);
+        options.structure = JSON.stringify(defaults.structure);
+        options.style = defaults.style;
 
-      var options = {};
-      options.theme = defaults.theme;
-      options.addons = JSON.stringify(defaults.addons);
-      options.structure = JSON.stringify(defaults.structure);
-      options.style = defaults.style;
-
-      Storage.save(options);
-      document.location.reload();
-
+        Storage.save(options);
+        document.location.reload();
+      }
     });
-  }
+  };
 }
 
 module.exports = bindResetButton;
