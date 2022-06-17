@@ -146,7 +146,7 @@ Highlighter.prototype = {
     var obligatory = {
       value: this.text,
       theme: this.theme,
-      readOnly: this.isReadOny() ? true : false,
+      readOnly: this.options.structure.readOnly ? true : false,
       mode: "application/ld+json",
       indentUnit: 2,
       tabSize: 2,
