@@ -45,9 +45,8 @@ Features:
 ### Or compile and load by yourself
 
   1. It depends on node (version in `package.json` engines).
-  2. `npm install --global yarn`
-  2. `yarn install`
-  3. `yarn run build`
+  2. `npm install`
+  3. `npm run build`
   4. Open Chrome and go to: chrome://extensions/
   5. Enable: "Developer mode"
   6. Click: "Load unpacked extension"

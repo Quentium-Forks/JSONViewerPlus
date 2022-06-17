@@ -1,5 +1,5 @@
 var jsonFormatter = require('../jsl-format');
-var JSONPath = require('jsonpath-plus/dist/index-browser-umd.cjs');
+var JSONPath = require('jsonpath-plus');
 
 function applyJsonPath(path, originalValue, highlighter, excludeHeader) {
   try {
