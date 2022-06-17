@@ -7,17 +7,16 @@
     <title>Options - JSON Viewer</title>
   </head>
   <body>
-
     <div class="container">
-      <h1>
-        <span class="logo" title="JSON Viewer"></span>
-        <span class="page-title">Options page</span>
-      </h1>
+      <header>
+        <img src="../icons/logo.png" alt="Logo" class="logo">
+        <h1 class="page-title">Options page</h1>
+      </header>
 
       <form id="options">
-        <header>
+        <section>
           <h2>Theme</h2>
-        </header>
+        </section>
 
         <div class="select-style">
           <select id="themes" name="theme"></select>
@@ -25,7 +24,7 @@
         <textarea id="themes-example" name="themes-example" disabled="disabled" style="display: none;">
         </textarea>
 
-        <header>
+        <section>
           <h2>Add-ons</h2>
           <span class="hint">Edit this code</span><br/>
           <div class="explain">
@@ -59,12 +58,12 @@
               </li>
             </ul>
           </div>
-        </header>
+        </section>
 
         <textarea id="addons" name="addons" style="display: none;">
         </textarea>
 
-        <header>
+        <section>
           <h2>Structure</h2>
           <span class="hint">Edit this code</span><br/>
           <div class="explain">
@@ -80,16 +79,16 @@
               </li>
             </ul>
           </div>
-        </header>
+        </section>
 
         <textarea id="structure" name="structure" style="display: none;">
         </textarea>
 
-        <header>
+        <section>
           <h2>Custom Style</h2>
           <span class="hint">Edit this code</span><br/>
           <span class="hint">This field accepts CSS code. Use ctrl + space to autocomplete the values, enjoy!</span>
-        </header>
+        </section>
 
         <textarea id="style" name="style" style="display: none;">
         </textarea>
