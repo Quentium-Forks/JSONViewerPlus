@@ -49,6 +49,8 @@ console.log('\n');
 
 var manifest = {
   mode: process.env.NODE_ENV || 'development',
+  // As of manifest V3, we should use inline-source-map that doesn't contains any eval.
+  devtool: 'inline-source-map',
   context: __dirname,
   entry: entries,
   output: {

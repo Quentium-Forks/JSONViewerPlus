@@ -3,7 +3,7 @@ var chrome = require("chrome-framework");
 var MAX_WAIT = 20;
 
 function loadCSS(opts) {
-  var url = chrome.extension.getURL(opts.path);
+  var url = chrome.runtime.getURL(opts.path);
 
   var link = document.createElement("link");
   var sheets = document.styleSheets;

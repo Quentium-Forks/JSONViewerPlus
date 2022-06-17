@@ -1,14 +1,5 @@
 function exposeJson(jsonObj, outsideViewer) {
-  console.info("[JSONViewer] Your json was stored into 'window.json', enjoy!");
-
-  if (outsideViewer) {
-    window.json = jsonObj;
-
-  } else {
-    var script = document.createElement("script") ;
-    script.innerHTML = 'window.json = ' + JSON.stringify(jsonObj) + ';';
-    document.head.appendChild(script);
-  }
+  // Adding a script tag in manifest V3 isn't supported anymore, windows.json is not working either
 }
 
 module.exports = exposeJson;
