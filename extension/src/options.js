@@ -35,7 +35,7 @@ function renderVersion() {
   var version = process.env.VERSION;
   var versionLink = document.getElementsByClassName('version')[0];
   versionLink.innerHTML = version;
-  versionLink.href = "https://github.com/tulios/json-viewer/tree/" + version;
+  versionLink.href = 'https://github.com/QuentiumYT/JSONViewerPlus/tree/' + version;
 }
 
 function onLoaded() {
@@ -48,7 +48,7 @@ function onLoaded() {
   var styleEditor = renderStyle(CodeMirror, currentOptions.style);
 
   bindResetButton();
-  bindSaveButton([addonsEditor, structureEditor, styleEditor], function(options) {
+  bindSaveButton([addonsEditor, structureEditor, styleEditor], function (options) {
     options.addons = clearShowSize(options.addons);
     options.structure = clearShowSize(options.structure);
 

@@ -1,9 +1,9 @@
 {
-  "name": "json_viewer",
-  "description": "The most beautiful and customizable JSON/JSONP highlighter that your eyes have ever seen. Open source at https://github.com/tulios/json-viewer",
-  "author": "Tulio Ornelas <ornelas.tulio@gmail.com>",
+  "name": "json_viewer_plus",
+  "description": "The most beautiful and customizable JSON/JSONP highlighter that your eyes have ever seen.",
+  "author": "Quentin Lienhardt",
   "license": "MIT",
-  "repository": "https://github.com/tulios/json-viewer",
+  "repository": "https://github.com/QuentiumYT/JSONViewerPlus",
   "private": true,
   "dependencies": {
     "archiver": "^5.3.1",

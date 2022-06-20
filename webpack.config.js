@@ -52,7 +52,7 @@ var manifest = {
   context: __dirname,
   entry: entries,
   output: {
-    path: path.join(__dirname, 'build/json_viewer/assets'),
+    path: path.join(__dirname, 'build/json_viewer_plus/assets'),
     filename: '[name].js',
   },
   module: {
