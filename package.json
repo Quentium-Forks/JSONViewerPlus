@@ -17,7 +17,7 @@
     "sweetalert2": "^11.4.29"
   },
   "scripts": {
-    "release": "NODE_ENV=production npm run build",
+    "release": "cross-env NODE_ENV=production npm run build",
     "build": "webpack && node ./lib/release-script"
   },
   "devDependencies": {
