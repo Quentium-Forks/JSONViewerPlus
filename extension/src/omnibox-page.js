@@ -19,7 +19,7 @@ function handleJSONHighlight(pre, query) {
   var rawJson = query.replace(/^json=/, '');
   pre.innerText = decodeURIComponent(rawJson);
 
-  JSONUtils.checkIfJson(function(pre) {
+  JSONUtils.checkIfJson(document.contentType, function (pre) {
     pre.hidden = true;
     highlightContent(pre, true);
   }, pre);

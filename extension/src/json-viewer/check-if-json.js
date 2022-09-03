@@ -71,7 +71,7 @@ function isJSONP(jsonStr) {
   return isJSON(extractJSON.replaceWrapper(jsonStr));
 }
 
-function checkIfJson(contentType, sucessCallback, element) {
+function checkIfJson(contentType, successCallback, element) {
   var pre = element || getPreWithSource();
 
   if (
@@ -83,7 +83,7 @@ function checkIfJson(contentType, sucessCallback, element) {
     )
   ) {
 
-    sucessCallback(pre);
+    successCallback(pre);
   } else if (bodyModified) {
     restoreNonJSONBody();
   }
