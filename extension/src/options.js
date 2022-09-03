@@ -53,14 +53,29 @@ function onLoaded() {
     options.structure = clearShowSize(options.structure);
 
     if (!isValidJSON(options.addons)) {
-      new sweetAlert("Ops!", "\"Add-ons\" isn't a valid JSON", "error");
+      new sweetAlert({
+        title: "Ops!",
+        text: "\"Add-ons\" isn't a valid JSON",
+        icon: "error",
+        timer: 2000,
+      });
 
     } else if (!isValidJSON(options.structure)) {
-      new sweetAlert("Ops!", "\"Structure\" isn't a valid JSON", "error");
+      new sweetAlert({
+        title: "Ops!",
+        text: "\"Structure\" isn't a valid JSON",
+        icon: "error",
+        timer: 2000,
+      });
 
     } else {
       Storage.save(options);
-      new sweetAlert("Success", "Options saved!", "success");
+      new sweetAlert({
+        title: "Saved!",
+        text: "Your options have been saved",
+        icon: "success",
+        timer: 1500,
+      });
     }
   });
 }
