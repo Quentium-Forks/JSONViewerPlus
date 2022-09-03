@@ -55,7 +55,6 @@ function renderExtras(pre, options, highlighter) {
   var optionsLink = document.createElement("a");
   optionsLink.className = "json_viewer icon gear";
   optionsLink.href = chrome.extension.getURL("/pages/options.html");
-  optionsLink.target = "_blank";
   optionsLink.title = "Options";
   optionsLink.innerHTML = svgGear;
 
