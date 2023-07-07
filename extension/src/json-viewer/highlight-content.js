@@ -74,7 +74,7 @@ function highlightContent(pre, outsideViewer, ignoreLimit) {
 
     return contentExtractor.getJSON(pre, options)
       .then((data) => {
-        exposeJson(data.jsonObj, outsideViewer);
+        exposeJson(data.jsonObj);
         return data;
       })
       .then(jsonFilter.applyQuery(filterQuery))

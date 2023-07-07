@@ -22,7 +22,7 @@ function loadEditor(pre) {
         var text = highlighter.editor.getValue();
         highlighter.editor.setValue(jsonFormater(text));
         if (JSONUtils.isJSON(text)) {
-          exposeJson(text, true);
+          exposeJson(text);
         }
       });
 
