@@ -73,6 +73,10 @@ var manifest = {
           },
         ],
       },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
+      },
     ],
   },
   optimization: {

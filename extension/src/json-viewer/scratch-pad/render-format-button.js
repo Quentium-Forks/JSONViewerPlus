@@ -1,4 +1,3 @@
-var svgFormat = require('./svg-format');
 var Mousetrap = require('mousetrap');
 require('mousetrap/plugins/global-bind/mousetrap-global-bind');
 
@@ -9,7 +8,7 @@ function renderFormatButton(onFormatClick) {
   formatLink.className = "json_viewer icon format";
   formatLink.href = "#";
   formatLink.title = "Format (ctrl+shift+F / command+shift+F)";
-  formatLink.innerHTML = svgFormat;
+  formatLink.innerHTML = 'Format';
   formatLink.onclick = function(e) {
     e.preventDefault();
     onFormatClick();

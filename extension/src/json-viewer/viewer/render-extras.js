@@ -1,8 +1,8 @@
 var chrome = require('chrome-framework');
-var svgSearch = require('./svg-search');
-var svgGear = require('./svg-gear');
-var svgRaw = require('./svg-raw');
-var svgUnfold = require('./svg-unfold');
+var svgSearch = require('../../../icons/search.svg');
+var svgGear = require('../../../icons/gear.svg');
+var svgRaw = require('../../../icons/raw.svg');
+var svgUnfold = require('../../../icons/unfold.svg');
 var applyJsonPath = require('./apply-jsonpath');
 
 function renderExtras(pre, options, highlighter) {

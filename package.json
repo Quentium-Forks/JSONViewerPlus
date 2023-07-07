@@ -19,10 +19,11 @@
     "build": "webpack && node ./lib/release-script"
   },
   "devDependencies": {
-    "css-loader": "^6.8.1",
     "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.8.1",
     "mini-css-extract-plugin": "^2.7.6",
     "sass-loader": "^13.3.2",
+    "svg-inline-loader": "^0.8.2",
     "terser-webpack-plugin": "^5.3.9",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
