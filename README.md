@@ -1,4 +1,4 @@
-![JSON Viewer Logo](https://raw.githubusercontent.com/QuentiumYT/JSONViewerPlus/main/logo.png)
+![JSON Viewer Logo](https://raw.githubusercontent.com/QuentiumYT/JSONViewerPlus/main/extension/icons/128.png)
 
 # JSON Viewer Plus
 

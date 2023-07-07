@@ -25,17 +25,8 @@ body {
 
 h1 {
   line-height: 128px;
-  margin: 0 0 0 -10px;
+  margin: 0 0 0 10px;
   font-size: 2.5em;
-
-  .logo {
-    float: left;
-  }
-
-  .page-title {
-    display: inline-block;
-    margin: 3px 0 0 10px;
-  }
 }
 
 section {
@@ -113,7 +104,7 @@ section {
     box-shadow: none;
     background: transparent;
     background-image: none;
-    -webkit-appearance: none;
+    appearance: none;
 
     &:focus {
       outline: none;
@@ -165,8 +156,6 @@ header {
   align-items: center;
 
   .logo {
-    display: inline-block;
     width: 128px;
-    height: 64px;
   }
 }
