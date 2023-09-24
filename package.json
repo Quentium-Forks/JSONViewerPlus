@@ -6,13 +6,13 @@
   "repository": "https://github.com/QuentiumYT/JSONViewerPlus",
   "private": true,
   "dependencies": {
-    "archiver": "^5.3.1",
-    "codemirror": "^5.65.13",
+    "archiver": "^6.0.1",
+    "codemirror": "^5.65.15",
     "fs-extra": "^11.1.1",
     "jsonpath-plus": "^7.2.0",
     "mousetrap": "^1.6.5",
     "promise": "^8.3.0",
-    "sweetalert2": "^11.7.12"
+    "sweetalert2": "^11.7.28"
   },
   "scripts": {
     "release": "cross-env NODE_ENV=production npm run build",
@@ -25,7 +25,7 @@
     "sass-loader": "^13.3.2",
     "svg-inline-loader": "^0.8.2",
     "terser-webpack-plugin": "^5.3.9",
-    "webpack": "^5.88.1",
+    "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
   }
 }
