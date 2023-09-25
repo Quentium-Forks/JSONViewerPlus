@@ -2,16 +2,16 @@ var extractJSON = require('./extract-json');
 var bodyModified = false;
 
 function allTextNodes(nodes) {
-  return !Object.keys(nodes).some(function(key) {
-    return nodes[key].nodeName !== '#text'
-  })
+  return !Object.keys(nodes).some(function (key) {
+    return nodes[key].nodeName !== '#text';
+  });
 }
 
 function getPreWithSource() {
   var childNodes = document.body.childNodes;
 
   if (childNodes.length === 0) {
-    return null
+    return null;
   }
 
   if (childNodes.length > 1 && allTextNodes(childNodes)) {
@@ -19,12 +19,14 @@ function getPreWithSource() {
       console.debug("[JSONViewer] Loaded from a multiple text nodes, normalizing");
     }
 
-    document.body.normalize() // concatenates adjacent text nodes
+    document.body.normalize(); // concatenates adjacent text nodes
   }
 
-  var childNode = childNodes[0];
-  var nodeName = childNode.nodeName
-  var textContent = childNode.textContent
+  var childNode = [...childNodes].find(function (childNode) {
+    return childNode.textContent.trim().length > 0;
+  });
+  var nodeName = childNode.nodeName;
+  var textContent = childNode.textContent;
 
   if (nodeName === "PRE") {
     return childNode;
@@ -44,7 +46,7 @@ function getPreWithSource() {
     return pre;
   }
 
-  return null
+  return null;
 }
 
 function restoreNonJSONBody() {
@@ -58,13 +60,13 @@ function restoreNonJSONBody() {
 function isJSON(jsonStr) {
   var str = jsonStr;
   if (!str || str.length === 0) {
-    return false
+    return false;
   }
 
-  str = str.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@')
-  str = str.replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']')
-  str = str.replace(/(?:^|:|,)(?:\s*\[)+/g, '')
-  return (/^[\],:{}\s]*$/).test(str)
+  str = str.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@');
+  str = str.replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']');
+  str = str.replace(/(?:^|:|,)(?:\s*\[)+/g, '');
+  return (/^[\],:{}\s]*$/).test(str);
 }
 
 function isJSONP(jsonStr) {
