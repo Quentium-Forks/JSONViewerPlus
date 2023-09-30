@@ -22,7 +22,7 @@ body {
     padding: 15px;
   }
 
-  ~.CodeMirror-scroll {
+  ~ .CodeMirror-scroll {
     height: calc(100% - 77px);
   }
 }
@@ -37,7 +37,7 @@ body {
   position: absolute;
   top: 0;
   right: 16px;
-  padding: 10px 5px 10px 15px;
+  padding: 30px 10px;
 
   a {
     transition: all ease-in-out 250ms;
