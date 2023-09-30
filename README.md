@@ -40,7 +40,7 @@ Features:
 
 ### Install through Chrome Web Store
 
-[![https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh](https://raw.githubusercontent.com/QuentiumYT/JSONViewerPlus/main/tryitnow.png)](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)
+Later... You can download the latest GitHub release and install it manually using "Load unpacked extension...".
 
 ### Or compile and load by yourself
 
