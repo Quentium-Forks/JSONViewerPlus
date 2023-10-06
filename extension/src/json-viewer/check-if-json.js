@@ -8,6 +8,10 @@ function allTextNodes(nodes) {
 }
 
 function getPreWithSource() {
+  if (!document.body) {
+    return null;
+  }
+
   var childNodes = document.body.childNodes;
 
   if (childNodes.length === 0) {
